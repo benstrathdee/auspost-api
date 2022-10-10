@@ -1,5 +1,7 @@
 # auspost-test-api
-A barebones API written in Java that allows mobile clients to retrieve and add suburb and postcode combinations
+A barebones API written in Java that allows mobile clients to retrieve and add suburb and postcode combinations.
+
+OpenAPI docs and a Postman collection have been included
 
 ## Endpoints
 
