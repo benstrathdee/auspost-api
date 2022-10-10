@@ -9,7 +9,7 @@ phases:
     commands:
       - echo Build completed on `date`
       - mvn package
-  artifacts:
-    files:
-      - target/post-api-0.0.1-SNAPSHOT.jar
-    discard-paths: yes
+artifacts:
+  files:
+    - target/post-api-0.0.1-SNAPSHOT.jar
+  discard-paths: yes
