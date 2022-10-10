@@ -5,7 +5,7 @@ OpenAPI docs and a Postman collection have been included
 
 ## Endpoints
 
-A hosted version for demonstration can be found at the following link:
+A hosted version for demonstration purposes is deployed using AWS CodePipeline from this repo and can be found at the following link:
 
 ```
 http://auspostfinal-env.eba-gn2efhzh.ap-southeast-2.elasticbeanstalk.com
