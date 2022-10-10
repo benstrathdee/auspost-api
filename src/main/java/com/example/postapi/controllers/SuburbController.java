@@ -30,9 +30,9 @@ public class SuburbController {
         }
     }
 
-    // POST /suburbs
+    // POST /suburbs/create
     // Expects a JSON request body with shape defined by NewSuburbWithPostcode
-    @PostMapping
+    @PostMapping(path = "/create")
     public ResponseEntity<SavedSuburbWithPostcode> addSuburb (@Valid @RequestBody NewSuburbWithPostcode data) {
         SavedSuburbWithPostcode newLink = postcodeService.create(data);
         return new ResponseEntity<>(newLink, HttpStatus.CREATED);

@@ -65,7 +65,7 @@ public class SuburbControllerTests {
         SavedSuburbWithPostcode mockReturn = new SavedSuburbWithPostcode("Melbourne", 3000);
 
         MockHttpServletResponse response = mvc.perform(
-                        post("/suburbs")
+                        post("/suburbs/create")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(jsonSuburb.write(mockData).getJson())
                                 .accept(MediaType.APPLICATION_JSON))

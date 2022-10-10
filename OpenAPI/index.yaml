@@ -2,7 +2,7 @@ openapi: "3.0.0"
 info:
     version: "1.0.0"
     title: "AusPost Tech Test API"
-    description: A barebones API A barebones API written in Java that allows mobile clients to retrieve and add suburb and postcode combinations
+    description: A barebones API written in Java that allows mobile clients to retrieve and add suburb and postcode combinations
 servers:
     - url: http://auspostfinal-env.eba-gn2efhzh.ap-southeast-2.elasticbeanstalk.com
 
@@ -35,7 +35,7 @@ paths:
                     description: The specified postcode could not be found so no suburbs were available
                 "401":
                     description: Bad Request - the query parameter was empty or not a valid data type
-    /suburbs:
+    /suburbs/create:
         post:
             summary: Create a new suburb with a postcode, or edit an existing suburb-postcode link
             requestBody:

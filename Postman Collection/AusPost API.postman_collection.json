@@ -47,7 +47,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{BASE_URL}}/suburbs",
+							"raw": "{{BASE_URL}}/suburbs/create",
 							"host": [
 								"{{BASE_URL}}"
 							],

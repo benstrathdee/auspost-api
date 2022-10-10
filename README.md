@@ -15,7 +15,7 @@ http://auspostfinal-env.eba-gn2efhzh.ap-southeast-2.elasticbeanstalk.com
 
 * `GET` `/suburbs?postcode={postcode}` Returns a list of suburbs within the specified postcode or `404 NOT FOUND`
 
-* `POST` `/suburbs` Used to create new postcode-suburb links
+* `POST` `/suburbs/create` Used to create new postcode-suburb links
   * Secured with Spring Security - will return `401 UNAUTHORIZED` if unauthorized
   * Expects a JSON format request body of the following shape: `{ "suburb": String, "postcode": Integer }` or will return `400 BAD REQUEST`
   * Will attempt to update existing postcode/suburb information with the new link, or create new ones if not found
