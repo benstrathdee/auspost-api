@@ -3,6 +3,12 @@ A barebones API written in Java that allows mobile clients to retrieve and add s
 
 ## Endpoints
 
+A hosted version for demonstration can be found at the following link:
+
+```
+http://auspostfinal-env.eba-gn2efhzh.ap-southeast-2.elasticbeanstalk.com
+```
+
 ### `/suburbs`
 
 * `GET` `/suburbs?postcode={postcode}` Returns a list of suburbs within the specified postcode or `404 NOT FOUND`
