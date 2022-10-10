@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "3f67e275-427a-4dd7-b8dc-3d2c01fae1eb",
+		"name": "AusPost API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21624819"
+	},
+	"item": [
+		{
+			"name": "Suburbs",
+			"item": [
+				{
+					"name": "Get suburbs by postcode",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/suburbs?postcode=3000",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"suburbs"
+							],
+							"query": [
+								{
+									"key": "postcode",
+									"value": "3000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create new suburb-postcode link",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"suburb\": \"Abbotsford\",\r\n    \"postcode\": 3067\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/suburbs",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"suburbs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Postcodes",
+			"item": [
+				{
+					"name": "Get postcode by suburb",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/postcodes?suburb=Melbourne",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"postcodes"
+							],
+							"query": [
+								{
+									"key": "suburb",
+									"value": "Melbourne"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authenticate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/login?username=user&password=password",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "user"
+						},
+						{
+							"key": "password",
+							"value": "password"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "localhost:8080",
+			"type": "string"
+		}
+	]
+}
