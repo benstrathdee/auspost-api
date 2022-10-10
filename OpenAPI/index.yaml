@@ -1,0 +1,115 @@
+openapi: "3.0.0"
+info:
+    version: "1.0.0"
+    title: "AusPost Tech Test API"
+    description: A barebones API A barebones API written in Java that allows mobile clients to retrieve and add suburb and postcode combinations
+servers:
+    - url: http://auspostfinal-env.eba-gn2efhzh.ap-southeast-2.elasticbeanstalk.com
+
+paths:
+    /suburbs?postcode=postcode:
+        get:
+            summary: Get a list of suburbs within the specified postcode
+            parameters:
+                - in: query
+                  name: postcode
+                  schema:
+                      $ref: "#/components/schemas/postcode"
+                  description: The postcode to search for suburbs with
+            responses:
+                "200":
+                    description: A list of suburbs with the specified postcode
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/listOfSuburbNames"
+                            example: 
+                                [
+                                    "Maidstone",
+                                    "Kingsville",
+                                    "Tottenham",
+                                    "Brooklyn",
+                                    "West Footscray"
+                                ]
+                "404":
+                    description: The specified postcode could not be found so no suburbs were available
+                "401":
+                    description: Bad Request - the query parameter was empty or not a valid data type
+    /suburbs:
+        post:
+            summary: Create a new suburb with a postcode, or edit an existing suburb-postcode link
+            requestBody:
+                description: The expected fields when creating a new suburb-postcode link
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/newSuburbWithPostcode"
+                        example:
+                            { "suburb": "Abbotsford", "postcode": 3067 }
+            responses:
+                "200":
+                    description: The newly created suburb-postcode link
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/newSuburbWithPostcode"
+                            example:
+                                { "suburb": "Abbotsford", "postcode": 3067 }
+                400:
+                    description: Bad Rquest. There was likely a problem with the request body
+                401:
+                    description: Unauthorized - should not be seen, as page will redirect to /login
+    /postcodes?suburb=suburb:
+        get:
+            summary: Get the postcode of the specified suburb
+            parameters:
+                - in: query
+                  name: suburb
+                  schema:
+                      $ref: "#/components/schemas/suburbName"
+                  description: The name of the suburb to check the postcode of
+            responses:
+                "200":
+                    description: The postcode of the specified suburb
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/postcode"
+                            example:
+                                3000
+                404:
+                    description: The specified suburb could not be found
+                "401":
+                    description: Bad Request - the query parameter was empty or not a valid data type
+    
+components:
+    schemas:
+        postcode:
+            description: A postcode
+            type: number
+        suburbName:
+            description: The name of a suburb
+            type: string
+        suburb:
+            description: A suburb
+            type: object
+            properties:
+                name:
+                    $ref: "#/components/schemas/suburbName"
+                postcode:
+                    description: The suburb's postcode
+                    $ref: "#/components/schemas/postcode"
+        newSuburbWithPostcode:
+            description: The expected request body when creating a new suburb with postcode
+            type: object
+            properties:
+                suburbName:
+                    $ref: "#/components/schemas/suburbName"
+                postcode:
+                    $ref: "#/components/schemas/postcode"
+        listOfSuburbNames:
+            description: A list of the names of suburbs contained within the specified postcode
+            type: array
+            items:
+                $ref: "#/components/schemas/suburbName"
