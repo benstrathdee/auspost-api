@@ -11,6 +11,10 @@
 //import org.springframework.boot.test.context.SpringBootTest;
 //import org.springframework.test.web.servlet.MockMvc;
 //
+// These tests are commented out because they fail in the build pipeline
+// due to not being able to initialise certain Spring beans correctly
+// Feel free to uncomment them to test them locally
+//
 //@SpringBootTest
 //@AutoConfigureMockMvc
 //class PostApiApplicationTests {
